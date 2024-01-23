@@ -26,15 +26,15 @@ while True:
 	# receive RPi name and frame from the RPi and acknowledge
 	# the receipt
 	(rpiName, frame) = imageHub.recv_image()
-	print(rpiName)
-	print(frame)
+	cv2.imshow(rpiName, frame)
+
+	cv2.waitKey(1)
 	imageHub.send_reply(b'OK')
 	# if a device is not in the last active dictionary then it means
 	# that its a newly connected device
 	if rpiName not in lastActive.keys():
 		print("[INFO] receiving data from {}...".format(rpiName))
-		cv2.namedWindow(rpiName)
+		
 	# record the last active time for the device from which we just
 	# received a frame
 	lastActive[rpiName] = datetime.now()
-	cv2.imshow(rpiName, frame)
