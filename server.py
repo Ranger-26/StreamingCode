@@ -20,18 +20,14 @@ lastActiveCheck = datetime.now()
 ESTIMATED_NUM_PIS = 4
 ACTIVE_CHECK_PERIOD = 10
 ACTIVE_CHECK_SECONDS = ESTIMATED_NUM_PIS * ACTIVE_CHECK_PERIOD
-# assign montage width and height so we can view all incoming frames
-# in a single "dashboard"
-mW = 1
-mH = 1
-
-
 
 # start looping over all the frames
 while True:
 	# receive RPi name and frame from the RPi and acknowledge
 	# the receipt
 	(rpiName, frame) = imageHub.recv_image()
+	print(rpiName)
+	print(frame)
 	imageHub.send_reply(b'OK')
 	# if a device is not in the last active dictionary then it means
 	# that its a newly connected device

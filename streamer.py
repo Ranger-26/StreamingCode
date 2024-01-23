@@ -19,7 +19,6 @@ sender = imagezmq.ImageSender(connect_to="tcp://{}:5555".format(
 rpiName = socket.gethostname()
 
 vs = VideoStream(src = 0, resolution=(320, 240)).start()
-#vs = VideoStream(src=0).start()
 time.sleep(2.0)
  
 while True:
