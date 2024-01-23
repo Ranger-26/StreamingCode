@@ -1,3 +1,4 @@
-cv2
+opencv-python
+imutils
 imagezmq
 numpy
